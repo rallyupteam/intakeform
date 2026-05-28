@@ -116,7 +116,7 @@
        LAYOUT
        ============================================================ */
     .app { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; }
-    .wrap { width: 100%; max-width: 540px; padding: 96px 24px 72px; }
+    .wrap { width: 100%; max-width: 580px; padding: 104px 24px 80px; }
 
     /* ============================================================
        STEPS
@@ -126,112 +126,118 @@
     .step.bwd { animation: fadeInBwd .35s ease forwards; }
     @keyframes fadeIn    { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: none; } }
     @keyframes fadeInBwd { from { opacity:0; transform: translateY(-12px); } to { opacity:1; transform: none; } }
+    @keyframes pulse-dot { 0%,100%{opacity:0.4} 50%{opacity:1} }
 
     /* ============================================================
        INTRO SLIDE
        ============================================================ */
-    .intro { display: flex; flex-direction: column; gap: 24px; padding-top: 8px; }
+    .intro { display: flex; flex-direction: column; gap: 28px; padding-top: 4px; }
 
     /* Chip / badge */
     .badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(221,255,77,0.35);
-      border: 1px solid rgba(221,255,77,0.9);
-      color: var(--ru-blue-dark);
-      padding: 6px 14px; border-radius: var(--ru-r-pill);
-      font-size: .7rem; font-weight: 700; letter-spacing: .06em;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(11,16,32,0.03);
+      border: 1px solid rgba(11,16,32,0.10);
+      color: var(--ru-blue-deep);
+      padding: 7px 14px; border-radius: var(--ru-r-pill);
+      font-size: .68rem; font-weight: 600; letter-spacing: .14em;
       text-transform: uppercase; width: fit-content;
     }
     .badge::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--ru-blue-dark);
-      animation: pulse-dot 1.8s ease-in-out infinite;
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--ru-blue);
     }
-    @keyframes pulse-dot { 0%,100%{opacity:0.4} 50%{opacity:1} }
 
     .intro h1 {
-      font-size: clamp(2rem, 6vw, 2.7rem); font-weight: 900;
-      line-height: 1.12; letter-spacing: -.03em; color: var(--ru-blue-dark);
+      font-size: clamp(2.1rem, 5.2vw, 2.95rem); font-weight: 700;
+      line-height: 1.08; letter-spacing: -.035em; color: var(--ru-blue-deep);
     }
     .intro h1 .serif {
       font-family: var(--ru-font-serif); font-style: italic;
-      font-weight: 500; color: var(--ru-blue);
+      font-weight: 400; color: var(--ru-blue);
+      letter-spacing: -.01em;
     }
-    .intro h1 .highlight {
-      background-image: linear-gradient(transparent 68%, rgba(221,255,77,0.7) 68%);
-      background-repeat: no-repeat; background-size: 100% 100%;
-      padding: 0 3px;
-    }
-
-    /* Proof bar */
+    /* Proof bar — refined pull quote */
     .proof-bar {
-      display: flex; align-items: flex-start; gap: 14px;
-      background: linear-gradient(135deg, rgba(221,255,77,0.10), rgba(221,255,77,0.04));
-      border: 1px solid rgba(221,255,77,0.5);
-      border-radius: var(--ru-r-xl); padding: 16px 20px;
+      display: block;
+      background: transparent;
+      border: none;
+      border-left: 2px solid var(--ru-blue);
+      border-radius: 0;
+      padding: 6px 0 6px 22px;
+      margin: 2px 0;
     }
-    .proof-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 1px; }
-    .proof-text { font-size: .88rem; color: var(--ru-gray); line-height: 1.6; }
-    .proof-text strong { color: var(--ru-blue-dark); font-weight: 700; }
+    .proof-text { font-size: 1rem; color: var(--ru-ink); line-height: 1.55; font-weight: 400; }
+    .proof-text strong { color: var(--ru-blue-deep); font-weight: 600; }
 
     /* Offer card */
     .offer-card {
       background: var(--ru-bg-soft); border: 1px solid var(--border);
-      border-radius: var(--ru-r-2xl); padding: 22px 24px;
-      display: flex; flex-direction: column; gap: 16px;
+      border-radius: var(--ru-r-2xl); padding: 28px 30px;
+      display: flex; flex-direction: column; gap: 22px;
     }
-    .offer-card > p { font-size: .9rem; color: var(--ru-gray); line-height: 1.6; }
-    .offer-steps { display: flex; flex-direction: column; gap: 12px; }
-    .offer-step { display: flex; align-items: flex-start; gap: 12px; }
+    .offer-card > p { font-size: .92rem; color: var(--ru-gray); line-height: 1.6; }
+    .offer-steps { display: flex; flex-direction: column; gap: 18px; }
+    .offer-step { display: flex; align-items: flex-start; gap: 16px; }
     .os-num {
-      width: 24px; height: 24px; min-width: 24px; border-radius: 50%;
-      background: var(--ru-yellow); color: var(--ru-blue-dark);
-      font-size: .7rem; font-weight: 900;
+      width: 26px; height: 26px; min-width: 26px; border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid var(--ru-blue-deep);
+      color: var(--ru-blue-deep);
+      font-family: var(--ru-font-mono);
+      font-size: .72rem; font-weight: 600;
       display: flex; align-items: center; justify-content: center; margin-top: 1px;
     }
-    .os-text { font-size: .88rem; color: var(--ru-gray); line-height: 1.55; }
-    .os-text strong { color: var(--ru-ink); font-weight: 700; }
+    .os-text { font-size: .92rem; color: var(--ru-gray); line-height: 1.55; }
+    .os-text strong { color: var(--ru-ink); font-weight: 600; }
 
-    /* Primary CTA — yellow pill */
+    /* Primary CTA — deep blue pill */
     .btn-cta {
-      width: 100%; padding: 16px 24px;
-      background: var(--ru-yellow); color: var(--ru-blue-dark);
+      width: 100%; padding: 18px 24px;
+      background: var(--ru-blue-deep); color: #fff;
       border: none; border-radius: var(--ru-r-pill);
-      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 800;
-      cursor: pointer; letter-spacing: -0.01em;
-      transition: transform var(--ru-dur-fast) var(--ru-ease), box-shadow var(--ru-dur-fast) var(--ru-ease);
+      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 600;
+      cursor: pointer; letter-spacing: -0.005em;
+      transition: transform var(--ru-dur-fast) var(--ru-ease),
+                  box-shadow var(--ru-dur-fast) var(--ru-ease),
+                  background var(--ru-dur-fast) var(--ru-ease);
     }
-    .btn-cta:hover { transform: translateY(-2px); box-shadow: var(--ru-shadow-btn-y); }
+    .btn-cta:hover {
+      background: var(--ru-blue);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(30,58,138,0.22);
+    }
 
     .fp {
       text-align: center; font-size: .72rem; color: var(--ru-gray);
-      letter-spacing: .03em; font-family: var(--ru-font-mono);
+      letter-spacing: .06em; font-family: var(--ru-font-mono);
+      text-transform: uppercase;
     }
 
     /* ============================================================
        QUESTION SLIDES
        ============================================================ */
     .q-tag {
-      font-family: var(--ru-font-mono); font-size: .65rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase; color: var(--ru-blue);
-      margin-bottom: 10px;
+      font-family: var(--ru-font-mono); font-size: .65rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--ru-blue);
+      margin-bottom: 12px;
     }
     .q-h {
-      font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: 800;
-      line-height: 1.25; letter-spacing: -.025em; color: var(--ru-blue-dark);
-      margin-bottom: 6px;
+      font-size: clamp(1.4rem, 4vw, 1.75rem); font-weight: 700;
+      line-height: 1.22; letter-spacing: -.028em; color: var(--ru-blue-deep);
+      margin-bottom: 8px;
     }
     .q-sub {
-      font-size: .85rem; color: var(--ru-gray); margin-bottom: 20px;
+      font-size: .88rem; color: var(--ru-gray); margin-bottom: 24px;
       line-height: 1.5;
     }
 
     /* Single-select options */
-    .opts { display: flex; flex-direction: column; gap: 10px; }
+    .opts { display: flex; flex-direction: column; gap: 12px; }
     .opt {
       display: flex; align-items: flex-start; gap: 14px;
-      background: var(--ru-bg-soft); border: 1.5px solid var(--border);
-      border-radius: var(--ru-r-xl); padding: 15px 16px;
+      background: var(--ru-bg-soft); border: 1px solid var(--border);
+      border-radius: var(--ru-r-xl); padding: 18px 20px;
       cursor: pointer;
       transition: border-color var(--ru-dur-fast) var(--ru-ease),
                   background var(--ru-dur-fast) var(--ru-ease),
@@ -241,10 +247,9 @@
     .opt.sel  { border-color: var(--ru-blue); background: var(--blue-tint); transform: none; box-shadow: none; }
     .opt.disq:hover { border-color: rgba(239,68,68,.4); background: var(--red-tint); }
     .opt.disq.sel  { border-color: var(--red); background: var(--red-tint); }
-    .oi { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
-    .ot { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-    .ot strong { font-size: .9rem; font-weight: 700; color: var(--ru-ink); }
-    .ot span { font-size: .78rem; color: var(--ru-gray); line-height: 1.45; }
+    .ot { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .ot strong { font-size: .95rem; font-weight: 600; color: var(--ru-ink); letter-spacing: -.01em; }
+    .ot span { font-size: .82rem; color: var(--ru-gray); line-height: 1.5; }
     .ck {
       width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
       border: 2px solid var(--border-md); background: transparent;
@@ -259,21 +264,21 @@
 
     /* Multi-select options */
     .multi-hint {
-      font-size: .78rem; color: var(--ru-gray); margin-bottom: 14px;
-      font-family: var(--ru-font-mono); letter-spacing: .02em;
+      font-size: .72rem; color: var(--ru-gray); margin-bottom: 16px;
+      font-family: var(--ru-font-mono); letter-spacing: .14em;
+      text-transform: uppercase; font-weight: 600;
     }
-    .multi-opts { display: flex; flex-direction: column; gap: 8px; }
+    .multi-opts { display: flex; flex-direction: column; gap: 10px; }
     .mopt {
       display: flex; align-items: center; gap: 12px;
-      background: var(--ru-bg-soft); border: 1.5px solid var(--border);
-      border-radius: var(--ru-r-lg); padding: 13px 15px; cursor: pointer;
+      background: var(--ru-bg-soft); border: 1px solid var(--border);
+      border-radius: var(--ru-r-lg); padding: 15px 18px; cursor: pointer;
       transition: border-color var(--ru-dur-fast) var(--ru-ease),
                   background var(--ru-dur-fast) var(--ru-ease);
     }
     .mopt:hover { border-color: var(--border-md); background: white; }
-    .mopt.sel { border-color: var(--ru-blue-dark); background: rgba(42,58,216,0.06); }
-    .moi { font-size: 1.1rem; flex-shrink: 0; }
-    .mot { flex: 1; font-size: .88rem; font-weight: 500; color: var(--ru-ink); }
+    .mopt.sel { border-color: var(--ru-blue-deep); background: rgba(30,58,138,0.05); }
+    .mot { flex: 1; font-size: .92rem; font-weight: 500; color: var(--ru-ink); letter-spacing: -.005em; }
     .mbox {
       width: 20px; height: 20px; border-radius: 5px;
       border: 2px solid var(--border-md); background: transparent;
@@ -287,19 +292,19 @@
 
     .err { display: none; color: var(--red); font-size: .78rem; margin-top: 6px; }
 
-    /* Continue button — blue pill */
+    /* Continue button — deep blue pill */
     .btn-next {
-      width: 100%; margin-top: 18px; padding: 15px 24px;
-      background: var(--ru-blue); color: #fff;
+      width: 100%; margin-top: 22px; padding: 17px 24px;
+      background: var(--ru-blue-deep); color: #fff;
       border: none; border-radius: var(--ru-r-pill);
-      font-family: var(--ru-font-sans); font-size: .95rem; font-weight: 700;
-      cursor: pointer; letter-spacing: -0.01em;
+      font-family: var(--ru-font-sans); font-size: .98rem; font-weight: 600;
+      cursor: pointer; letter-spacing: -0.005em;
       transition: transform var(--ru-dur-fast) var(--ru-ease),
                   box-shadow var(--ru-dur-fast) var(--ru-ease),
                   background var(--ru-dur-fast) var(--ru-ease),
                   opacity var(--ru-dur-fast) ease;
     }
-    .btn-next:hover:not(:disabled) { background: var(--ru-blue-dark); transform: translateY(-2px); box-shadow: var(--ru-shadow-btn-b); }
+    .btn-next:hover:not(:disabled) { background: var(--ru-blue); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(30,58,138,0.22); }
     .btn-next:disabled { opacity: .35; cursor: not-allowed; transform: none !important; }
 
     /* ============================================================
@@ -321,12 +326,12 @@
        FINAL SLIDE
        ============================================================ */
     .final-h {
-      font-size: clamp(1.55rem, 5vw, 2.1rem); font-weight: 900;
-      line-height: 1.2; letter-spacing: -.03em; color: var(--ru-blue-dark);
-      margin-bottom: 10px;
+      font-size: clamp(1.7rem, 4.6vw, 2.25rem); font-weight: 700;
+      line-height: 1.15; letter-spacing: -.032em; color: var(--ru-blue-deep);
+      margin-bottom: 12px;
     }
-    .final-h .serif { font-family: var(--ru-font-serif); font-style: italic; font-weight: 500; color: var(--ru-blue); }
-    .final-sub { font-size: .9rem; color: var(--ru-gray); line-height: 1.65; margin-bottom: 24px; }
+    .final-h .serif { font-family: var(--ru-font-serif); font-style: italic; font-weight: 400; color: var(--ru-blue); letter-spacing: -.01em; }
+    .final-sub { font-size: .95rem; color: var(--ru-gray); line-height: 1.65; margin-bottom: 28px; }
 
     .section-label {
       font-family: var(--ru-font-mono); font-size: .65rem; font-weight: 700;
@@ -344,33 +349,35 @@
     .email-input:focus { border-color: var(--ru-blue); box-shadow: 0 0 0 3px var(--blue-tint); }
     .email-input::placeholder { color: var(--ru-gray); }
 
-    /* Confirm button — yellow pill */
+    /* Confirm button — deep blue pill */
     .btn-email {
-      background: var(--ru-yellow); color: var(--ru-blue-dark);
+      background: var(--ru-blue-deep); color: #fff;
       border: none; border-radius: var(--ru-r-pill);
-      padding: 14px 22px; font-family: var(--ru-font-sans);
-      font-size: .92rem; font-weight: 800; cursor: pointer; white-space: nowrap;
-      transition: transform var(--ru-dur-fast) var(--ru-ease), box-shadow var(--ru-dur-fast) var(--ru-ease);
+      padding: 15px 24px; font-family: var(--ru-font-sans);
+      font-size: .95rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+      transition: transform var(--ru-dur-fast) var(--ru-ease),
+                  box-shadow var(--ru-dur-fast) var(--ru-ease),
+                  background var(--ru-dur-fast) var(--ru-ease);
       flex-shrink: 0;
     }
-    .btn-email:hover:not(:disabled) { transform: translateY(-2px); box-shadow: var(--ru-shadow-btn-y); }
+    .btn-email:hover:not(:disabled) { background: var(--ru-blue); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(30,58,138,0.22); }
     .btn-email:disabled { opacity: .4; cursor: not-allowed; transform: none !important; }
 
     .email-err { display: none; color: var(--red); font-size: .78rem; margin-bottom: 16px; }
 
-    /* Book button — blue pill full-width */
+    /* Book button — deep blue pill full-width */
     .btn-book {
       display: none; align-items: center; justify-content: center;
-      width: 100%; padding: 17px 24px;
-      background: var(--ru-blue); color: #fff;
+      width: 100%; padding: 18px 24px;
+      background: var(--ru-blue-deep); color: #fff;
       border: none; border-radius: var(--ru-r-pill);
-      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 800;
-      cursor: pointer; text-decoration: none; letter-spacing: -0.01em;
-      margin-top: 6px;
+      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; letter-spacing: -0.005em;
+      margin-top: 8px;
       transition: transform var(--ru-dur-fast) var(--ru-ease), box-shadow var(--ru-dur-fast) var(--ru-ease), background var(--ru-dur-fast) var(--ru-ease);
     }
     .btn-book.on { display: flex; }
-    .btn-book:hover { background: var(--ru-blue-dark); transform: translateY(-2px); box-shadow: var(--ru-shadow-btn-b); }
+    .btn-book:hover { background: var(--ru-blue); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(30,58,138,0.22); }
 
     .scar {
       display: none; align-items: center; justify-content: center;
@@ -383,14 +390,13 @@
     /* ============================================================
        DISQUALIFICATION SLIDE
        ============================================================ */
-    .disq-wrap { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
-    .disq-icon { font-size: 2.8rem; }
+    .disq-wrap { display: flex; flex-direction: column; gap: 22px; padding-top: 4px; }
     .disq-h {
-      font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: 900;
-      line-height: 1.2; letter-spacing: -.03em; color: var(--ru-blue-dark);
+      font-size: clamp(1.7rem, 4.6vw, 2.25rem); font-weight: 700;
+      line-height: 1.15; letter-spacing: -.032em; color: var(--ru-blue-deep);
     }
-    .disq-h .serif { font-family: var(--ru-font-serif); font-style: italic; font-weight: 500; color: var(--ru-blue); }
-    .disq-body { font-size: .92rem; color: var(--ru-gray); line-height: 1.7; }
+    .disq-h .serif { font-family: var(--ru-font-serif); font-style: italic; font-weight: 400; color: var(--ru-blue); letter-spacing: -.01em; }
+    .disq-body { font-size: .95rem; color: var(--ru-gray); line-height: 1.7; }
     .disq-card {
       background: var(--ru-bg-soft); border: 1px solid var(--border);
       border-radius: var(--ru-r-2xl); padding: 20px 22px;
@@ -402,17 +408,19 @@
     }
     .disq-card-body { font-size: .88rem; color: var(--ru-gray); line-height: 1.6; }
 
-    /* Masterclass button — yellow pill */
+    /* Masterclass button — deep blue pill */
     .btn-masterclass {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 16px 24px;
-      background: var(--ru-yellow); color: var(--ru-blue-dark);
+      width: 100%; padding: 18px 24px;
+      background: var(--ru-blue-deep); color: #fff;
       border: none; border-radius: var(--ru-r-pill);
-      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 800;
-      cursor: pointer; text-decoration: none; letter-spacing: -0.01em;
-      transition: transform var(--ru-dur-fast) var(--ru-ease), box-shadow var(--ru-dur-fast) var(--ru-ease);
+      font-family: var(--ru-font-sans); font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; letter-spacing: -0.005em;
+      transition: transform var(--ru-dur-fast) var(--ru-ease),
+                  box-shadow var(--ru-dur-fast) var(--ru-ease),
+                  background var(--ru-dur-fast) var(--ru-ease);
     }
-    .btn-masterclass:hover { transform: translateY(-2px); box-shadow: var(--ru-shadow-btn-y); }
+    .btn-masterclass:hover { background: var(--ru-blue); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(30,58,138,0.22); }
 
     /* ============================================================
        RESPONSIVE
@@ -444,34 +452,33 @@
     <!-- SLIDE 0: INTRO -->
     <div class="step active" id="s0">
       <div class="intro">
-        <div class="badge">10 spots open this month</div>
+        <div class="badge">A small cohort of executive teams &middot; Now booking</div>
 
-        <h1>The LinkedIn content system<br><span class="highlight">built for executive teams.</span></h1>
+        <h1>Audience building, engineered<br><span class="serif">for executive teams.</span></h1>
 
         <div class="proof-bar">
-          <div class="proof-icon">&#128293;</div>
-          <p class="proof-text"><strong>The system that took a CEO from 500 to 100,000 impressions in 30 days.</strong> Built around your execs before we meet.</p>
+          <p class="proof-text"><strong>A recent partner went from 500 to 100,000 monthly impressions in their first thirty days.</strong> We build the foundation around your executives before our first call.</p>
         </div>
 
         <div class="offer-card">
-          <p>Most agencies want you to commit first. We do the work first. By the time we meet:</p>
+          <p>Before we discuss working together, you'll have:</p>
           <div class="offer-steps">
             <div class="offer-step">
               <div class="os-num">1</div>
-              <div class="os-text"><strong>A LinkedIn audit for each of your execs</strong> + a competitive map of your category.</div>
+              <div class="os-text"><strong>A LinkedIn audit for each of your executives,</strong> with a competitive map of your category.</div>
             </div>
             <div class="offer-step">
               <div class="os-num">2</div>
-              <div class="os-text"><strong>A 90-day playbook your team can run in-house.</strong> Yours, even if you walk.</div>
+              <div class="os-text"><strong>A 90-day playbook your team can run in-house.</strong> Yours to keep.</div>
             </div>
             <div class="offer-step">
               <div class="os-num">3</div>
-              <div class="os-text"><strong>Optional:</strong> show you our managed service so your team never writes another post.</div>
+              <div class="os-text"><strong>If there's fit, a walkthrough of our managed service.</strong> Our team runs the program end to end.</div>
             </div>
           </div>
         </div>
 
-        <button class="btn-cta" onclick="trackStart(); go(1, 's1')">Let's find out &rarr;</button>
+        <button class="btn-cta" onclick="trackStart(); go(1, 's1')">Begin &rarr;</button>
         <p class="fp">2 questions &middot; 30 seconds &middot; Reviewed personally</p>
       </div>
     </div>
@@ -484,25 +491,22 @@
       <div class="opts">
 
         <div class="opt" onclick="pickQ1(this, 'I want my executive team showing up on LinkedIn', true)">
-          <div class="oi">&#127970;</div>
           <div class="ot">
             <strong>I want my executive team showing up on LinkedIn</strong>
-            <span>Our C-suite / VPs should be posting but they're not &mdash; I need a system to make it happen.</span>
+            <span>Our C-suite and VPs should be posting consistently. We need a system to make it happen.</span>
           </div>
           <div class="ck"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
 
         <div class="opt" onclick="pickQ1(this, 'I am a founder or exec who needs to start posting consistently', true)">
-          <div class="oi">&#127775;</div>
           <div class="ot">
-            <strong>I'm a founder / exec who needs to start posting consistently</strong>
-            <span>I know I should be on LinkedIn but I don't have the time or system to do it well.</span>
+            <strong>I'm a founder or exec who needs to start posting consistently</strong>
+            <span>I know I should be on LinkedIn, but I don't have the time or system to do it well.</span>
           </div>
           <div class="ck"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
 
         <div class="opt disq" onclick="pickQ1(this, 'I want help with my own personal brand', false)">
-          <div class="oi">&#128100;</div>
           <div class="ot">
             <strong>I want help with my own personal brand</strong>
             <span>I'm looking to grow my thought leadership on LinkedIn.</span>
@@ -511,10 +515,9 @@
         </div>
 
         <div class="opt disq" onclick="pickQ1(this, 'I am exploring what is possible', false)">
-          <div class="oi">&#128270;</div>
           <div class="ot">
             <strong>I'm exploring what's possible</strong>
-            <span>Just curious about how AI + LinkedIn content works.</span>
+            <span>Just curious about how AI and LinkedIn content works.</span>
           </div>
           <div class="ck"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
@@ -525,12 +528,11 @@
     <!-- SLIDE DISQ: NOT A FIT -->
     <div class="step" id="s_disq">
       <div class="disq-wrap">
-        <div class="disq-icon">&#128591;</div>
-        <h2 class="disq-h">Not the right fit right now &mdash; <span class="serif">but here's something better.</span></h2>
-        <p class="disq-body">Our sessions are built for teams and execs who are ready to turn LinkedIn into a pipeline channel. Based on where you are today, we'd be taking up your time without delivering the value you deserve. That's not how we operate.</p>
+        <h2 class="disq-h">Not the right fit right now. <span class="serif">But here's something better.</span></h2>
+        <p class="disq-body">Our sessions are built for teams and executives who are ready to turn LinkedIn into a pipeline channel. Based on where you are today, we'd be taking up your time without delivering the value you deserve. That's not how we operate.</p>
         <div class="disq-card">
-          <p class="disq-card-label">&#127775;&nbsp; Free resource for you</p>
-          <p class="disq-card-body">We put together a free masterclass covering exactly how AI-powered LinkedIn content works &mdash; the frameworks, the systems, and what it takes to go from invisible to consistent. No call required, and you keep everything.</p>
+          <p class="disq-card-label">A free resource for you</p>
+          <p class="disq-card-body">We put together a free masterclass covering exactly how AI-powered LinkedIn content works. The frameworks, the systems, and what it takes to go from invisible to consistent. No call required, and you keep everything.</p>
         </div>
         <a href="https://content-masterclass.vercel.app/" target="_blank" class="btn-masterclass">
           Access the free masterclass &rarr;
@@ -543,34 +545,34 @@
     <div class="step" id="s3">
       <p class="q-tag">Step 2 of 3</p>
       <h2 class="q-h">What have you tried so far to crack LinkedIn content?</h2>
-      <p class="multi-hint">&#9997;&#65039;&nbsp; Select all that apply</p>
+      <p class="multi-hint">Select all that apply</p>
       <div class="multi-opts">
         <div class="mopt" onclick="toggleQ3(this, 'Used AI to generate content')">
-          <div class="moi">&#129302;</div><div class="mot">Used AI to generate content</div>
+          <div class="mot">Used AI to generate content</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, 'Developed my own system')">
-          <div class="moi">&#128295;</div><div class="mot">Developed my own system</div>
+          <div class="mot">Developed my own system</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, 'Used a SaaS tool')">
-          <div class="moi">&#128187;</div><div class="mot">Used a SaaS tool</div>
+          <div class="mot">Used a SaaS tool</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, 'Hired a ghostwriter')">
-          <div class="moi">&#9999;&#65039;</div><div class="mot">Hired a ghostwriter</div>
+          <div class="mot">Hired a ghostwriter</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, 'Hired an agency')">
-          <div class="moi">&#127970;</div><div class="mot">Hired an agency</div>
+          <div class="mot">Hired an agency</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, 'Let the marketing team handle it')">
-          <div class="moi">&#128101;</div><div class="mot">Let the marketing team handle it</div>
+          <div class="mot">Let the marketing team handle it</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="mopt" onclick="toggleQ3(this, &quot;Haven&apos;t done anything yet&quot;)">
-          <div class="moi">&#128528;</div><div class="mot">I haven't done anything yet</div>
+          <div class="mot">I haven't done anything yet</div>
           <div class="mbox"><svg viewBox="0 0 12 10" fill="none"><path d="M1 5l3.5 3.5L11 1" stroke="#0b1020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </div>
@@ -580,8 +582,8 @@
 
     <!-- SLIDE 4: EMAIL + BOOK BUTTON -->
     <div class="step" id="s4">
-      <h2 class="final-h">Congrats, you're a fit. &#127881;<br><span class="serif">Book your free session.</span></h2>
-      <p class="final-sub">We'll build your content system before the call and share 3 ready to post LinkedIn posts for your execs.</p>
+      <h2 class="final-h">You're a fit.<br><span class="serif">Book your free session.</span></h2>
+      <p class="final-sub">We'll build your content system before the call and share three ready-to-post drafts for your executives.</p>
 
       <p class="section-label">Your email</p>
       <div class="email-row">
@@ -591,7 +593,7 @@
       <p class="email-err" id="email-err">Please enter a valid email address.</p>
 
       <a class="btn-book" id="btn-book" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3mqHGQZgPSt_CE7Xz_GhF7wyvx4WGRdv6XqxBvrd4WxYjJhDLd4B-NoFRjMJXgC98-MYr8sBio?gv=true" target="_blank">
-        &#128197;&nbsp; Book your free session &rarr;
+        Book your free session &rarr;
       </a>
 
       <div class="scar" id="scar">
